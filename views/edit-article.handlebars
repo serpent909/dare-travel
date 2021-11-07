@@ -1,0 +1,58 @@
+<head>
+    <script src="https://cdn.tiny.cloud/1/6mx9lcqt4vqw1ywbenoqv8pg336sx96hf8mkgl9z2mezdnz7/tinymce/5/tinymce.min.js"
+        referrerpolicy="origin"></script>
+    <script src="/javascript/tinyMCE.js"></script>
+</head>
+
+<div class="article">
+    <h1>Edit Article</h1>
+    {{#if author}}
+    <form action="/editArticle" method="POST" enctype="multipart/form-data">
+        <br>
+        <div class="form-group">
+            <label for="title">Title</label><br>
+            <input type="text" name="title" id="title" value="{{article.title}}" required>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="region">Region</label><br>
+            <select type="text" name="region" id="region" required>
+                {{#each regions}}
+                <option value="{{this}}" {{#ifEquals ../article.region this}}selected{{/ifEquals}}>{{this}}
+                </option>
+                {{/each}}
+            </select>
+        </div>
+        <br>
+        <div>
+            <a>Current image:{{article.fileName}}</a>
+            <br>
+            <img src="/images/uploadedImages/{{article.fileName}}" width=100px>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="inpFile">Upload new image</label><br>
+            <input id="inpFile" type="file" name="thumbnail" accept=".png,.jpg,.jpeg,.bmp" value="">
+            <div>
+                <input type="hidden" name="fileName" id="fileName" value="{{article.fileName}}">
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="content">Content</label><br>
+            <textarea id="content" name="content">{{article.content}}</textarea>
+        </div>
+        <br>
+        <div>
+            <input type="hidden" name="articleId" id="articleId" value="{{article.id}}">
+        </div>
+        <br>
+        <div>
+            <button class="greenBtn" id="postBtn" type="submit">Update</button>
+            <button class="redBtn" id="discardEdit" type="button">Discard</button>
+        </div>
+    </form>
+    {{else}}
+    <h2>Cannot edit this article</h2>
+    {{/if}}
+</div>

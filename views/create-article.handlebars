@@ -1,0 +1,48 @@
+<head>
+    <script src="https://cdn.tiny.cloud/1/6mx9lcqt4vqw1ywbenoqv8pg336sx96hf8mkgl9z2mezdnz7/tinymce/5/tinymce.min.js"
+        referrerpolicy="origin"></script>
+    <script src="/javascript/tinyMCE.js"></script>
+</head>
+
+<div class="article">
+    <h1>Create Article</h1>
+
+    <form id="create-article" action="./createArticle" method="POST" enctype="multipart/form-data">
+        <br>
+        <div>
+            <legend><span class="number">1</span>Article Info</legend>
+        </div>
+        <div class="form-group">
+            <label for="title">Title</label><br>
+            <input type="text" name="title" id="title" required>
+        </div>
+        <br>
+        <div class="article-drop-down">
+            <div class="form-group">
+                <label for="region">Region</label><br>
+                <select type="text" name="region" id="region" required>
+                    {{#each regions}}
+                    <option value="{{this}}">{{this}}</option>
+                    {{/each}}
+                </select>
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="inpFile">Upload image</label><br>
+            <input id="inpFile" type="file" name="thumbnail" accept=".png,.jpg,.jpeg,.bmp" required>
+        </div>
+        <div>
+            <legend><span class="number">2</span>Article Content</legend>
+        </div>
+
+        <div class="form-group">
+            <label for="content"></label><br>
+            <textarea id="content" name="content"></textarea>
+        </div>
+        <br>
+       
+    </form>
+     <button class="greenBtn" form="create-article" id="postBtn" type="submit">Post</button>
+</div>
+

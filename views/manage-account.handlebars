@@ -1,0 +1,95 @@
+<script type="text/javascript" src="./javascript/account-info.js"></script>
+<script type="text/javascript" src="./javascript/form-validation.js"></script>
+<script src="/javascript/avatarModal.js"></script>
+<script src="/javascript/deleteAccount.js"></script>
+
+<div class="manage-account">
+    <h1 class="manage-account-title">Account Information</h1>
+    <br><br>
+<div class="manage-account-buttons">
+    <a href="/my-articles"><button class="blueBtn" id="myPostsBtn">My post activity <i class="fas fa-newspaper"></i></i></button></a>
+    <button class="redBtn" id="deleteAccountModalBtn">DELETE MY ACCOUNT <i class="fas fa-skull-crossbones"></i></button>
+</div>
+
+    <form class="update-account__form" action="./updateAccount" method="POST">
+
+        <div>
+            <label for="username">Username</label><br>
+            <input type="text" name="username" id="username" value="{{user.username}}" required>
+            <span id="usernameValidation"></span>
+        </div>
+
+        <div>
+            <label for="fName">First Name</label><br>
+            <input type="text" name="fName" id="fName" value="{{user.firstName}}" required>
+        </div>
+
+        <div>
+            <label for="lName">Last Name</label><br>
+            <input type="text" name="lName" id="lName" value="{{user.lastName}}" required>
+        </div>
+
+        <div>
+            <label for="age">Age</label><br>
+            <input type="text" name="age" id="age" value="{{user.age}}" required>
+        </div>
+
+        <div>
+            <label for="email">Email</label><br>
+            <input type="email" name="email" id="email" value="{{user.email}}" required>
+        </div>
+            <br>
+        <div>
+            <label for="profilePicture">Avatar</label><br>
+            <input type="hidden" name="profilePicture" id="profilePicture" value="{{user.profilePicture}}">
+            <span id="avatarSpan"><img class="avatar-icon" src="{{user.profilePicture}}"></span><br><br>
+            <button class="blueBtn" id="avatarBtn" type="button" disabled="true">Select Avatar <i
+                    class="fas fa-user-circle"></i></button>
+        </div>
+        <br>
+        <div>
+            <label for="bio">Bio</label><br>
+            <textarea type="text" name="bio" id="bio" cols="35" rows="4">{{user.bio}}</textarea>
+        </div>
+        {{#unless user.googleAccountToken}}
+        <div>
+            <label for="password">Password</label><br>
+            <input type="password" name="password" id="password" value="{{user.password}}" required>
+        </div>
+
+        <div>
+            <label for="confirmPassword">Confirm Password</label><br>
+            <input type="password" name="confirmPassword" id="confirmPassword" value="{{user.password}}" required>
+            <span id="passwordValidation"></span>
+        </div>
+        {{/unless}}
+        <br>
+        <div>
+
+            <button class="blueBtn" id="editButton" type="button">Edit <i class="fas fa-pencil-alt"></i></button>
+            <button class="redBtn" id="discardButton" type="button" disabled="true">Discard <i
+                    class="fas fa-trash-alt"></i></button>
+            <button class="greenBtn" id="saveButton" type="submit" disabled="true">Save <i
+                    class="fas fa-save"></i></button>
+        </div>
+    </form>
+</div>
+
+{{> avatar}}
+
+{{!-- Delete Account Modal --}}
+<div id="deleteModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close" id="closeDelete">&times;</span>
+            <h3>Are you sure you want to delete your account? This can't be undone...</h3>
+            <hr class="break-line">
+        </div>
+        <div class="modal-body">
+        </div>
+        <div class="modal-footer">
+            <button class="greenBtn" id="cancelDeleteBtn">Take me back!</button>
+            <button class="redBtn" id="confirmDeleteBtn">Delete account</button>
+        </div>
+    </div>
+</div>

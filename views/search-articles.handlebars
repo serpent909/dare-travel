@@ -1,0 +1,31 @@
+<div class="my-articles">
+    {{#if searchArticles}}
+    <div class="regionMenu__cards__container">
+        {{#each searchArticles}}
+        <div class="regionMenu__card">
+            <div class="regionMenu__card__header">
+                <a href="/read-article/{{this.id}}">
+                    <h2>{{this.title}}</h2>
+            </div>
+            <img class="regionMenu__card__image" src="{{this.thumbnail}}">
+            <br>
+            <div class="regionMenu__card__info">
+                <img class="avatar-thumbnail" src="{{this.profilePicture}}"></a>
+                {{#if this.username}}
+                <a>Author: {{this.username}}</a>
+                {{else}}
+                <a>Author: {{this.firstName}} {{this.lastName}}</a>
+                {{/if}}
+                <p>Likes: {{this.likes}}</p>
+                <p>Date: {{this.articleDate}}</p>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{else}}
+    <h2 class="no-content__heading">Sorry, the search did not find any matches...</h2>
+    <div class="no-content__container">
+        <img class="no-content__sadface" src="./images/misc/sad_face_search.png">
+    </div>
+    {{/if}}
+</div>

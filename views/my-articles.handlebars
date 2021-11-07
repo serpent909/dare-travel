@@ -1,0 +1,25 @@
+<div class="my-articles">
+    <h1>Articles by {{user.firstName}} {{user.lastName}}</h1>
+    <div class="regionMenu__cards__container">
+        {{#if articles}}
+        {{#each articles}}
+        <div class="regionMenu__card">
+            <div class="regionMenu__card__header">
+                <h3 class="card-title">{{this.title}}</h3>
+                <a href="/read-article/{{this.id}}"><img class="regionMenu__card__image" src="{{this.thumbnail}}"></a>
+            </div>
+            <div class="regionMenu__card__info">
+                <p>Likes: {{this.likes}}</p>
+                <p>Date: {{this.articleDate}}</p>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{else}}
+    <br>
+    <h2 class="no-content__heading">You haven't written any articles yet! Why not create one?</h2>
+    <div class="no-content__container">
+        <img class="no-content__sadface" src="./images/misc/sad_face_search.png">
+    </div>
+    {{/if}}
+</div>

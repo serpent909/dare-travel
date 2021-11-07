@@ -1,0 +1,76 @@
+<script type="text/javascript" src="./javascript/form-validation.js"></script>
+<script src="/javascript/avatarModal.js"></script>
+
+<div class="create-account">
+    <div>
+        <h2>Fill in the form or sign up with Google!</h2>
+        <div id="g_id_onload" data-client_id="787140582355-d9k9m0j892624bbi2m5vd5qha9v92ako.apps.googleusercontent.com"
+            data-context="signup" data-ux_mode="popup" data-login_uri="http://localhost:3000/google" data-nonce=""
+            data-auto_prompt="false">
+        </div>
+
+        <div class="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="filled_black"
+            data-text="signup_with" data-size="large" data-logo_alignment="left" data-width="300">
+        </div><br>
+
+        <form autocomplete="off" action="./createAccount" method="POST">
+            <div>
+                <legend><span class="number">1</span> Enter Your Basic Info</legend>
+            </div>
+            <div>
+                <label for="username">Username</label><br>
+                <input type="text" name="username" id="username" required>
+                <span id="usernameValidation"></span>
+            </div>
+            <div>
+                <label for="fName">First Name</label><br>
+                <input type="text" name="fName" id="fName" required>
+            </div>
+            <div>
+                <label for="lName">Last Name</label><br>
+                <input type="text" name="lName" id="lName" required>
+            </div>
+            <div>
+                <label for="age">Age</label><br>
+                <input type="text" name="age" id="age" required>
+            </div>
+            <div>
+                <label for="email">Email</label><br>
+                <input type="email" name="email" id="email" required>
+            </div>
+            <div>
+                <legend><span class="number">2</span> Your Personal Info</legend>
+            </div>
+            <div>
+                <label for="profilePicture">Avatar</label><br>
+                <input type="hidden" name="profilePicture" id="profilePicture" value="/images/avatars/explorer.png">
+                <span id="avatarSpan"><img class="avatar-icon" src="/images/avatars/explorer.png"></span><br>
+                <button class="blueBtn" id="avatarBtn" type="button">Select Avatar <i
+                        class="fas fa-user-circle"></i></button>
+                <br><br>
+            </div>
+            <div>
+                <label for="bio">Bio:</label><br>
+                <textarea type="text" name="bio" id="bio" cols="35" rows="4"></textarea>
+            </div>
+            <div>
+                <legend><span class="number">3</span> Enter your password</legend>
+            </div>
+            <div>
+                <label for="password">Password</label><br>
+                <input type="password" name="password" id="password" required>
+            </div>
+            <div>
+                <label for="confirmPassword">Confirm Password</label><br>
+                <input type="password" name="confirmPassword" id="confirmPassword" required>
+                <span id="passwordValidation"></span>
+            </div>
+            <div>
+                <br>
+                <button class="greenBtn " id="createBtn" type="submit">Create account</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{{> avatar}}

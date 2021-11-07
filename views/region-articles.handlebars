@@ -1,0 +1,37 @@
+<div class="article-container">
+    <div class="region-hero-image__container">
+        <div class="region-hero-image__text">
+            <p class="hero-title">{{this.title}}</p>
+        </div>
+        <img class="region-hero-image" src="/images/regions/{{this.title}}.jpg">
+    </div>
+
+    {{#if regionArticles}}
+    <div class="regionMenu__cards__container">
+        {{#each regionArticles}}
+
+        <div class="regionMenu__card">
+            <div class="regionMenu__card__header">
+                <h3 class="card-title">{{this.title}}</h3>
+
+            </div>
+            <a href="/read-article/{{this.id}}"><img class="regionMenu__card__image" src="{{this.thumbnail}}">
+                <div class="regionMenu__card__info">
+                    <img class="avatar-thumbnail" src="{{this.profilePicture}}">
+                    {{#if this.username}}
+                    <a>Author: {{this.username}}</a>
+                    {{else}}
+                    <a>Author: {{this.firstName}} {{this.lastName}}</a>
+                    {{/if}}
+                    <p>Likes: {{this.likes}}</p>
+                    <p>Date: {{this.articleDate}}</p>
+                </div>
+            </a>
+        </div>
+
+        {{/each}}
+    </div>
+    {{else}}
+    <h3>There are no articles for {{this.title}} yet, why not add one?</h3>
+    {{/if}}
+</div>

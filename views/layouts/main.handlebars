@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/dd9eac7dc7.js" crossorigin="anonymous"></script>
+    <script src="http://accounts.google.com/gsi/client" async defer></script>
+    <script type="text/javascript" src="/javascript/load-cards.js"></script>
+    <script type="text/javascript" src="/javascript/modal.js"></script>
+    <script type="text/javascript" src="https://livejs.com/live.js"></script>
+    <link rel="stylesheet" href="/css/site.css">
+    <link rel="stylesheet" href="/css/modal.css">
+    <link rel="stylesheet" href="/css/avatar.css">
+    <link rel="stylesheet" href="/css/utils.css">
+    <link rel="icon" type="image/png" href="/images/icons/favicon.ico">
+
+    {{#if title}}
+    <title>{{title}}</title>
+    {{else}}
+    <title>Dare Travel</title>
+    {{/if}}
+</head>
+
+{{> nav }}
+
+<body>
+    <div class="container">
+        {{{body}}}
+        <div class="toast">
+            <span id="loginMsg">
+                {{#if toastMessage}}
+                <p class="toast__text"> {{toastMessage}}</p>
+                {{/if}}
+            </span>
+        </div>
+    </div> 
+</body>
+
+<footer>
+    <div class="copyright-text">Copyright &copy; 2021 All Rights Reserved by
+        <a href="#">Dare Travel Inc.</a>
+        <address>63 Dare Travel St, Grafton, Auckland</address>
+    </div>
+</footer>
+
+<!-- Modal HTML -->
+<!-- The Modal -->
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close" id="closeLogin">&times;</span>
+            <h3>Login</h3>
+            <hr class="break-line">
+        </div>
+        <div class="modal-body">
+            <form class="modal-form" action="/login" method="POST">
+                <div>
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="loginUsername" required>
+                </div>
+                <br>
+                <div>
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="loginPassword" required>
+                </div>
+                <br>
+                <div>
+                    <button type="submit" class="greenBtn" id="modalLoginBtn">Log in</button>
+                    <span id="loginMsg"></span>
+                </div>
+            </form>
+
+            <p>Don't have an account? <a href="/create-account">Create one <b><u>here</u></b></a></p>
+
+        </div>
+        <div class="modal-footer">
+            <hr class="break-line">
+        </div>
+    </div>
+</div>

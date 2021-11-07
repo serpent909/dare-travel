@@ -1,0 +1,65 @@
+<!-- navigation menu    -->
+<nav class="nav nav-grid">
+    <div class="nav-menu">
+        <div class="nav-brand">
+            <a href="/"><img src="/images/logos/logo.png" id="logo" class="nav-menu__text" width="250px"></a>
+        </div>
+    </div>
+    <div class="toggle-collapse">
+        <div class="toggle-icons text-black">
+            <span class="icon"></span>
+        </div>
+    </div>
+    <div>
+        <ul class="nav-items nav-menu-flex">
+            {{#if user}}
+            <li class="nav-link">
+                <a href="/create-article" class="nav-menu__text">Post</a>
+            </li>
+            <li class="nav-link">
+                <a href="/manage-account" class="nav-menu__text">Account</a>
+            </li>
+
+            {{else}}
+            <li class="nav-link">
+                <a href="/create-account" class="nav-menu__text">Create Account</a>
+            </li>
+            {{/if}}
+            <li class="nav-link">
+                <div class="search-container">
+
+                    <form id="search-form" action="/searchArticles" method="GET">
+                        <input type="text" id="articleSearch" name="articleSearch">
+                    </form>
+                    <button class="blueBtn" id="searchButton" type="submit" form="search-form"><i
+                            class="fas fa-search"></i></button>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <ul class="nav-items nav-auth-flex">
+        <li>
+            {{#if user}}
+            <button class="logBtn" id="logoutBtn">Logout <i class="fas fa-sign-out-alt"></i></button>
+            {{else}}
+            <button class="logBtn" id="loginBtn">Login <i class="fas fa-sign-in-alt"></i></button>
+            {{/if}}
+        </li>
+        {{#unless user}}
+        <li class="nav-link">
+            <div class="navbar__google">
+                <div id="g_id_onload"
+                    data-client_id="787140582355-d9k9m0j892624bbi2m5vd5qha9v92ako.apps.googleusercontent.com"
+                    data-context="signin" data-ux_mode="popup" data-login_uri="http://localhost:3000/google"
+                    data-nonce="" data-auto_select="true">
+                </div>
+
+                <div class="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="outline"
+                    data-text="signin_with" data-size="large" data-logo_alignment="left">
+                </div>
+
+            </div>
+        </li>
+        {{/unless}}
+    </ul>
+</nav>

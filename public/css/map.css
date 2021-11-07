@@ -1,0 +1,16 @@
+#viewDiv {
+    margin: 20px 0px 0px;
+    padding: 0;
+    height: 600px;
+    width: 100%;  
+}
+
+#info {
+    background-color: rgba(8, 8, 8, 0.9);
+    opacity: 0.75;
+    color: rgb(42, 107, 212);
+    font-size: 20pt;
+    font-weight: bold;
+    padding: 4px;
+    visibility: hidden;
+}

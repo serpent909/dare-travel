@@ -1,0 +1,94 @@
+/* Navbar text animation */
+ 
+  .nav-menu__text {
+    overflow: hidden;
+    background: linear-gradient(to right, rgb(56, 56, 255), red 50%, whitesmoke 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    background-position: 100%;
+    transition: background-position 1000ms ease-in-out;
+    text-decoration: none;
+  }
+
+  .nav-menu__text:hover {
+    background-position: 0 100%;
+  }
+
+/*****************************************************************/
+/* Buttons */
+/****************************************************************/
+.greenBtn, .blueBtn, .redBtn, #loginBtn, #logoutBtn, input[type=file]::file-selector-button {
+
+    align-items: center; 
+    white-space: nowrap;
+    position: relative;
+    margin: 10px auto;
+    padding: 10px 30px;
+    font-size: 18px;
+    color: whitesmoke;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .greenBtn, #loginBtn {
+    background-color: #5ec369;
+    border-bottom: 4px solid #41ad4c;
+  }
+  
+  .greenBtn:hover, #loginBtn:hover {
+    background-color: #4bbc58 !important;
+  }
+
+  .greenBtn:active, #loginBtn:active {
+    top: 4px;
+    margin: 10px auto 14px auto;
+    border-bottom: 0;
+  }
+
+  .blueBtn, input[type=file]::file-selector-button {
+    background-color: #479cff;
+    border-bottom: 4px solid #1481ff;
+  }
+  
+  .blueBtn:hover, input[type=file]::file-selector-button:hover {
+    background-color: #2e8eff !important;
+  }
+
+  .blueBtn:active, input[type=file]::file-selector-button:active {
+    top: 4px;
+    margin: 10px auto 14px auto;
+    border-bottom: 0;
+  }
+
+  .redBtn, #logoutBtn {
+    background-color: #ea6c6c;
+    border-bottom: 4px solid #e43f3f;
+  }
+  
+  .redBtn:hover, #logoutBtn:hover {
+    background-color: #e75656!important;
+  }
+
+  .redBtn:active, #logoutBtn:active {
+    top: 4px;
+    margin: 10px auto 14px auto;
+    border-bottom: 0;
+  }
+
+  button > a {
+    color: whitesmoke;
+  }
+   
+  button:disabled {
+    filter: opacity(25%);
+  }
+
+
+
+  

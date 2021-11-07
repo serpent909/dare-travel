@@ -1,0 +1,31 @@
+<head>
+    <script type="text/javascript" src="https://js.arcgis.com/4.21/"></script>
+    <script type="text/javascript" src="javascript/map.js"></script>
+    <script type="text/javascript" src="./javascript/load-cards.js"></script>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.21/esri/themes/dark/main.css">
+    <link rel="stylesheet" href="./css/map.css">
+</head>
+
+
+<div class="regionMenu">
+    <h1>{{#if user}}Welcome to Dare Travel {{user.firstName}}{{else}} Welcome to Dare Travel{{/if}}</h1><br>
+    <h3>Pick a region below or select one from the map</h3>
+    <div class="regionMenu__cards__container">
+
+        {{#each regions}}
+        <div class="regionMenu__card">
+            <div class="regionMenu__card__header">
+                <a href="/region/{{this}}"><img class="regionMenu__card__image" src="./images/regions/{{this}}.jpg"></a>
+                <h2 class="card-title">{{this}}</h2>
+            </div>
+        </div>
+        {{/each}}
+
+    </div>
+
+    <div id="viewDiv"></div>
+    <div id="info">
+        <span id="regionSelect"></span>
+    </div>
+
+</div>

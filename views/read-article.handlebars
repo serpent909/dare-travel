@@ -1,0 +1,93 @@
+<script type="text/javascript" src="/javascript/article-interactions.js"></script>
+
+<div class="article-body">
+    <div class="article-body__container">
+        <div>
+            <h1>{{article.title}}</h1>
+            <h2>{{article.region}}</h2>
+            <img class="avatar-thumbnail" src="{{article.profilePicture}}">
+            {{#if article.username}}
+            <a>Author: {{article.username}}</a>
+            {{else}}
+              <a>Author: {{article.firstName}} {{article.lastName}}</a>
+            {{/if}}
+
+            <p>Published: {{article.articleDate}}</p>
+
+            {{#if author}}
+            <div>
+                <div>
+                    <a href="/edit-article/{{article.id}}"><button class="greenBtn">Edit <i
+                                class="fas fa-pencil-alt"></i></button></a>
+                    <button class="redBtn" form="edit-article" type="submit" id="deleteButton"
+                        type="submit">Delete</button>
+                </div>
+                <form id="edit-article" action="/deleteArticle" method="POST">
+                    <div>
+                        <input type="hidden" name="articleId" id="articleId" value="{{article.id}}">
+                    </div>
+                </form>
+            </div>
+            <br>
+            {{/if}}
+            <div class="read-article__image">
+                <img class="large-image" src="{{article.thumbnail}}">
+
+            </div>
+            <p>{{{article.content}}}</p>
+            <br>
+            <hr>
+        </div>
+        <div>
+            {{#if user}}
+            {{#if articleLiked}}
+            <input type="image" class="article-like" id="liked" src="/images/icons/likeBtnBlue.png"
+                value="{{article.id}}">
+            {{else}}
+            <input type="image" class="article-like" id="unliked" src="/images/icons/likeBtnGrey.png"
+                value="{{article.id}}">
+            {{/if}}
+            {{/if}}
+            <b><p id="likesCounter" value="{{article.likes}}">Likes {{article.likes}}</p></b>
+        </div>
+
+        <div class="article-comments">
+            <h3>Comments</h3>
+            <div>
+                {{#each comment}}
+                <img class="avatar-thumbnail" src="{{this.profilePicture}}">
+                {{#if this.username}}
+                <h5>{{this.username}}</h5>
+                {{else}}
+                <h5>{{this.firstName}} {{this.lastName}}</h5>
+                {{/if}}
+                <p>{{this.comment}}</p>
+                <p>{{this.commentDate}}</p>
+                <hr>
+                {{/each}}
+            </div>
+
+            {{#if user}}
+            <div>
+                <form id="comment-form" method="POST">
+                    <div>
+                        <textarea type="text" id="comment" name="comment" placeholder="Add a comment..."
+                            required></textarea>
+                    </div>
+                    <div>
+                        <input type="hidden" name="articleId" id="articleIdComments" value="{{article.id}}">
+                        <input type="hidden" name="userId" id="userId" value="{{user.id}}">
+                    </div>
+                    <div>
+                        <button class="greenBtn" type="submit" id="postBtn" name="myFunction">Post Comment</button>
+                    </div>
+                </form>
+            </div>
+
+            {{else}}
+            <p>Sign in to write a comment...</p>
+            {{/if}}
+
+        </div>
+    </div>
+</div>
